@@ -8,41 +8,57 @@
 </head>
 <body>
     <script>
+
+        /* select rock paper or scissors randomly.
+        Used in playRound Function */
         function getComputerChoice() {
             const choices = ["rock", "paper", "scissors"]
             const randomIndex = Math.floor(Math.random() * choices.length);
             return choices[randomIndex]
         }
 
+        /* compares player and computer choices and sees who wins */
+
         function winner(player, computer)  {
             
             if (player === computer) {
-                return "Tie";
+                console.log("Tie");
+                tieCounter++
             }
             if (player === 'rock') {
                 if (computer === "paper") {
-                    return "Paper beats rock, you lose!"
+                    console.log("Paper beats rock, you lose!");
+                    computerWinCount++;
                 } else {
-                    return "rock beats scissors, you win"
+                    console.log("rock beats scissors, you win");
+                    playerWinCount++;
                 }
             }
             if (player === "paper") {
                 if (computer === "rock") {
-                    return "paper beats rock, you win!"
+                    console.log("paper beats rock, you win!");
+                    playerWinCount++;
                 } else {
-                    return "scissors beat paper, you lose!"
+                    console.log("scissors beat paper, you lose!");
+                    computerWinCount++;
                 }
-            if (player === scissors) {
-                if (computer === rock) {
-                    return "rock beats scissors, you lose!"
+            }
+            if (player === "scissors") {
+                if (computer === "rock") {
+                    console.log("rock beats scissors, you lose!");
+                    computerWinCount++;
                 } else {
-                    return "scissors beat paper, you win!"
+                    console.log("scissors beat paper, you win!");
+                    playerWinCount++;
                 }
             }
         }
 
-        }
-        
+
+
+
+        /* function to play one round. While loop so player has to put
+        a correct value*/
 
         function playRound() {
         
@@ -54,19 +70,37 @@
                 }
             }    
             let computerChoice = getComputerChoice()
+            console.log(`Your chose: ${playerSelection}`)
             console.log(`Computer chose: ${computerChoice}`)
-            console.log(winner(playerSelection, computerChoice))
+            return winner(playerSelection, computerChoice)
+            
             
 
         
 
         }
+        /* Counters on a global scope so they work on all functions */
+        let playerWinCount = 0
+        let computerWinCount = 0
+        let tieCounter = 0
         
+         /* Loops the playRound function 5 times */
         function game () {
+            
+            let round = 1;
+
             for (let i = 0; i < 5; i++) {
-                let round = 1;
                 
+                console.log(`This is round ${round}`)
+                playRound()
+                console.log(`You have ${playerWinCount} wins`)
+                console.log(`Computer has ${computerWinCount} wins`)
+                console.log(`Ties ${tieCounter}`)
+                round++
+
             }
+
+
         }
         
 
