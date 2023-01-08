@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice() {
+            const choices = ["rock", "paper", "scissors"]
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            return choices[randomIndex]
+        }
+
+        function winner(player, computer)  {
+            
+            if (player === computer) {
+                return "Tie";
+            }
+            if (player === 'rock') {
+                if (computer === "paper") {
+                    return "Paper beats rock, you lose!"
+                } else {
+                    return "rock beats scissors, you win"
+                }
+            }
+            if (player === "paper") {
+                if (computer === "rock") {
+                    return "paper beats rock, you win!"
+                } else {
+                    return "scissors beat paper, you lose!"
+                }
+            if (player === scissors) {
+                if (computer === rock) {
+                    return "rock beats scissors, you lose!"
+                } else {
+                    return "scissors beat paper, you win!"
+                }
+            }
+        }
+
+        }
+        
+
+        function playRound() {
+        
+            let playerSelection;
+            while (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
+                playerSelection = prompt("Choose rock/paper/scissors").toLowerCase()
+                if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
+                    console.log("Invalid choice. Try again.")
+                }
+            }    
+            let computerChoice = getComputerChoice()
+            console.log(`Computer chose: ${computerChoice}`)
+            console.log(winner(playerSelection, computerChoice))
+            
+
+        
+
+        }
+        
+        function game () {
+            for (let i = 0; i < 5; i++) {
+                let round = 1;
+                
+            }
+        }
+        
+
+
+
+
+    </script>
+</body>
+</html>
